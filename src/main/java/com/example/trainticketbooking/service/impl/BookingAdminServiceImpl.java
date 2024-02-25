@@ -10,8 +10,8 @@ import com.example.trainticketbooking.repository.entity.booking.Ticket;
 import com.example.trainticketbooking.repository.entity.booking.User;
 import com.example.trainticketbooking.service.BookingAdminService;
 import jakarta.transaction.Transactional;
-import org.graalvm.collections.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,7 +42,7 @@ public class BookingAdminServiceImpl implements BookingAdminService{
         responseDTO.setUserSeats(bookings.stream().map(booking -> {
                 User user = booking.getUser();
                 Seat seat = booking.getSeat();
-                return Pair.create(
+                return Pair.of(
                         SeatDTO.builder().row(seat.getRowNum()).num(seat.getSeat()).build(),
                         UserDTO.builder().firstName(user.getFirstName()).lastName(user.getLastName()).emailId(user.getEmailId()).build()
                 );

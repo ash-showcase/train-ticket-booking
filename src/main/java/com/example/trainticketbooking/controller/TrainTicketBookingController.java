@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +27,6 @@ public class TrainTicketBookingController {
 
     @GetMapping(path = "/{bookingId}")
     @ResponseBody
-    @Cacheable(value = "bookingsCache", key = "#bookingId")
     public BookingResponseDTO viewBookings(@PathVariable Long bookingId) {
         return bookingService.viewBooking(bookingId);
     }

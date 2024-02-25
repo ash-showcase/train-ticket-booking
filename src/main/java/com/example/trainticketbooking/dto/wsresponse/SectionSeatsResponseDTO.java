@@ -3,7 +3,7 @@ package com.example.trainticketbooking.dto.wsresponse;
 import com.example.trainticketbooking.dto.SeatDTO;
 import com.example.trainticketbooking.dto.UserDTO;
 import lombok.Data;
-import org.graalvm.collections.Pair;
+import org.springframework.data.util.Pair;
 
 import java.util.List;
 
